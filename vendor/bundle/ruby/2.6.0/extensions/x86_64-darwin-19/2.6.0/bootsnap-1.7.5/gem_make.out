@@ -1,0 +1,15 @@
+current directory: /Users/shohei.tsuji/Documents/deploy/shuwasystem-rails/vendor/bundle/ruby/2.6.0/gems/bootsnap-1.7.5/ext/bootsnap
+/Users/shohei.tsuji/.rbenv/versions/2.6.3/bin/ruby -I /Users/shohei.tsuji/.rbenv/versions/2.6.3/lib/ruby/2.6.0 -r ./siteconf20210614-77887-1kf5ye8.rb extconf.rb
+creating Makefile
+
+current directory: /Users/shohei.tsuji/Documents/deploy/shuwasystem-rails/vendor/bundle/ruby/2.6.0/gems/bootsnap-1.7.5/ext/bootsnap
+make "DESTDIR=" clean
+
+current directory: /Users/shohei.tsuji/Documents/deploy/shuwasystem-rails/vendor/bundle/ruby/2.6.0/gems/bootsnap-1.7.5/ext/bootsnap
+make "DESTDIR="
+compiling bootsnap.c
+linking shared-object bootsnap/bootsnap.bundle
+
+current directory: /Users/shohei.tsuji/Documents/deploy/shuwasystem-rails/vendor/bundle/ruby/2.6.0/gems/bootsnap-1.7.5/ext/bootsnap
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 bootsnap.bundle ./.gem.20210614-77887-1xnqiau/bootsnap
