@@ -3,33 +3,16 @@
 lock '3.16.0'
 
 # Capistranoのログの表示に利用する
-set :application, '○○○(自身のアプリケーション名)'
-set :deploy_to, '/var/○○○（アプリを入れているディレクトリ)/○○○(アプリ名)'
+set :application, 'myapp'
+set :deploy_to, "/var/www/myapp"
 
 # どのリポジトリからアプリをpullするかを指定する
-set :repo_url,  'git@github.com:○○○(Githubのユーザー名)/○○○（レポジトリ名.git'
+set :repo_url,  'git@github.com:ShoheiTsuji-CRE/deploy_sample.git'
 
-# バージョンが変わっても共通で参照するディレクトリを指定
-set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
-
+# rbenv
 set :rbenv_type, :user
-set :rbenv_ruby, '2.6.3' #カリキュラム通りに進めた場合、2.5.1か2.3.1です
-
-# どの公開鍵を利用してデプロイするか
-set :ssh_options, auth_methods: ['publickey'],
-                  keys: ['~/.ssh/○○○○○.pem（ローカルPCのEC2インスタンスのSSH鍵(pem)へのパス　例：~/.ssh/key_pem.pem））']
-
-# プロセス番号を記載したファイルの場所
-set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
-
-# Unicornの設定ファイルの場所
-set :unicorn_config_path, -> { "#{current_path}/config/unicorn.rb" }
-set :keep_releases, 5
-
-# デプロイ処理が終わった後、Unicornを再起動するための記述
-after 'deploy:publishing', 'deploy:restart'
-namespace :deploy do
-  task :restart do
-    invoke 'unicorn:restart'
-  end
-end
+# set :rbenv_path, '/usr/local/rbenv'
+set :rbenv_ruby, '2.6.3'
+set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
+set :rbenv_map_bins, %w{rake gem bundle ruby rails}
+set :rbenv_roles, :all # default value

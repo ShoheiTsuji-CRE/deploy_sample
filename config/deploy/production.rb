@@ -1,4 +1,12 @@
-server '18.○○○.○○.○○○(Elastic IP)', user: 'ec2-user', roles: %w{app db web}
+# サーバのホスト名とユーザ名
+server "instance-1", user: "shohei.tsuji", roles: %w{app db web}
+
+# SSHの設定
+set :ssh_options, {
+  keys: %w(~/.ssh/id_rsa.pem),
+  forward_agent: true,
+  auth_methods: %w(publickey)
+}
 
 # server-based syntax
 # ======================
