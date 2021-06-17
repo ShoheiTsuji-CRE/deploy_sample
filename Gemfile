@@ -41,7 +41,7 @@ group :development, :test do
   gem 'capistrano-rbenv-install', '~> 1.2.0'
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
-  gem 'capistrano3-unicorn'
+  # gem 'capistrano3-unicorn'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Use sqlite3 as the database for Active Record
@@ -59,6 +59,7 @@ end
 
 group :production do
   gem 'mysql2'
+  gem 'unicorn'
 end
 
 group :test do
